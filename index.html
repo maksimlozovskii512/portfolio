@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maksim Lozovskii</title>
-  <style>
+<style>
     html {
       font-size: 16px;
     }
@@ -30,10 +30,7 @@
       border-radius: 0.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    section:hover {
-      transform: translateY(-0.25rem);
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    }
+
     h1 {
       font-size: 1.8rem;
       margin: 0 0 0.5em;
@@ -48,31 +45,32 @@
       margin-bottom: 1em;
     }
     .project {
+      display: block;
       margin-bottom: 1.5rem;
       padding: 1rem;
       border: 0.063rem solid #ccc;
       border-radius: 0.5rem;
       transition: transform 0.3s ease, background 0.3s ease;
-      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
     .project:hover {
       transform: scale(1.02);
       background: #f9f9f9;
     }
     .download-btn {
-      display: inline-block;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       border: none;
       border-radius: 0.5rem;
-      background: #333;
+      background: #e73636;
       color: #fff;
       text-decoration: none;
       transition: background 0.3s ease, transform 0.3s ease;
       margin-top: 1rem;
     }
     .download-btn:hover {
-      background: #555;
+      background: #a3a0a0;
       transform: scale(1.05);
     }
     @media (min-width: 48em) {
@@ -94,45 +92,73 @@
     const Header = () => (
       <header>
         <h1>Maksim Lozovskii</h1>
+        <a href="./maksimlozovskii_cv.docx" className="download-btn" download>
+          Download CV
+        </a>
       </header>
     );
 
-    const About = () => (
-      <section>
-        <h2>About Me</h2>
-      </section>
-    );
-
-    const Project = ({ title, description }) => (
-      <div className="project">
+    const Project = ({ title, description, href }) => (
+      <a href={href} className="project">
         <h3>{title}</h3>
         <p>{description}</p>
-      </div>
+      </a>
     );
 
     const Projects = () => (
       <section>
         <h2>Projects</h2>
-        <Project 
-          title="Portfolio Website" 
-          description="Personal Portfolio website hosted on github pages" 
+        <Project
+          title="final-year-project"
+          href="https://github.com/maksimlozovskii512/phishing-email-llm-final-year-project"
+          description="Flask based browser game where player must find a phishing email in pregenerated interactions"
         />
-      </section>
-    );
+        <Project 
+          title="dota-2-pro-matches-bot" 
+          href="https://github.com/maksimlozovskii512/dota-pro-matches-bot"
+          description="Telegram bot for upcoming dota 2 matches" 
+        />
+        <Project 
+          title="react-image-ranker" 
+          href ="https://github.com/maksimlozovskii512/react-image-ranking-ui"
+          description="Mobile and desktop friendly image ranker" 
+        />
+        <Project 
+          title="fridge-food-tracker" 
+          description="Mobile and desktop friendly fridge stock tracking app" 
+        />
+        <Project 
+          title="python-barcode-scanner" 
+          href="https://github.com/maksimlozovskii512/simple-barcode-scanner"
+          description="Barcode scanner using openCV" 
+        />
+        <Project 
+          title="llm-proactive-bot" 
+          href="https://"
+          description="LLM based bot that proactively sends messages via telegram" 
+        />
+        <Project 
+          title="llm-story-generator" 
+          href ="https://"
+          description="LLM based story generator using custom prompting" 
+        />
+        <Project 
+          title="llm-email-generator" 
+          href ="https://"
+          description="LLM based email generator using custom prompting" 
+        />
+        <Project 
+          title="youtube-new-videos-aggregator-bot" 
+          href ="https://"
+          description="Telegram bot for aggregating newly released videos on selected channels" 
+        />
 
-    const DownloadCV = () => (
-      <section>
-        <a href="./maksimlozovskii.pdf" className="download-btn" download>
-          Download CV
-        </a>
       </section>
     );
 
     const App = () => (
       <div>
         <Header />
-        <About />
-        <DownloadCV />
         <Projects />
       </div>
     );
